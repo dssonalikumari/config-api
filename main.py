@@ -121,8 +121,7 @@ def build_config(overrides):
     return config
 
 
+@app.get("/")
 @app.get("/effective-config")
-def effective_config(
-    set: list[str] | None = Query(default=None)
-):
+def effective_config(set: list[str] | None = Query(default=None)):
     return build_config(set or [])
